@@ -1,7 +1,7 @@
 SUMMARY = "Free and Open On-Chip Debugging, In-System Programming and Boundary-Scan Testing"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
-DEPENDS = "libusb-compat libftdi"
+DEPENDS = "libusb-compat libftdi jim"
 RDEPENDS:${PN} = "libusb1"
 
 SRC_URI = " \
@@ -24,7 +24,7 @@ inherit pkgconfig autotools-brokensep gettext
 
 BBCLASSEXTEND += "native nativesdk"
 
-EXTRA_OECONF = "--enable-ftdi --disable-doxygen-html --disable-werror"
+EXTRA_OECONF = "--enable-ftdi --disable-doxygen-html --disable-werror --disable-internal-jimtcl"
 
 do_configure() {
     ./bootstrap nosubmodule
